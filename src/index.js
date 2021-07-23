@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '@fontsource/quicksand';
+import '@fontsource/kanit';
+import '@fontsource/play';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
