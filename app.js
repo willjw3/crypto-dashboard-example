@@ -6,12 +6,15 @@ require('dotenv').config();
 
 const port = 3570 || process.env.PORT; 
 
-const dataKey = process.env.DATA_KEY;
+app.use(express.json());
+
+const allDataKey = process.env.ALL_COINS_DATA_KEY;
+const oneDataKey = process.env.ONE_COIN_DATA_KEY;
 
 app.get('/', async (req, res) => {
     let cryptoData = [];
     try {
-        const result = await fetch(dataKey);
+        const result = await fetch(allDataKey);
         const coinData = await result.json();
         for (let coin of coinData) {
             let priceCharacterArray = [];
@@ -27,9 +30,8 @@ app.get('/', async (req, res) => {
                 capCharacterArray.push(`${marketCapStringArray.slice(3*i, 3*i + 3).split('').reverse().join('')},`);
             } 
             const currentPrice = coin.current_price.toString().split('.')[1] !== undefined ? priceCharacterArray.reverse().join('').slice(0, priceCharacterArray.reverse().join('').length - 1) + '.' + coin.current_price.toString().split('.')[1] : priceCharacterArray.reverse().join('').slice(0, priceCharacterArray.reverse().join('').length - 1);
-            //const currentPrice = priceCharacterArray.reverse().join('').slice(0, priceCharacterArray.reverse().join('').length - 1) + '.' + coin.current_price.toString().split('.')[1];
             const marketCap = capCharacterArray.reverse().join('').slice(0, capCharacterArray.reverse().join('').length - 1);
-            console.log({original: coin.current_price, final: currentPrice})
+            //console.log({original: coin.current_price, final: currentPrice})
             cryptoData.push({
                 id: coin.id,
                 symbol: coin.symbol,
@@ -50,6 +52,20 @@ app.get('/', async (req, res) => {
     res.header('Access-Control-Allow-Origin', "*")
     res.json(cryptoData);
     
+})
+
+app.get('/coindata/:id', async (req, res) => {
+    console.log({params: req.params})
+    let coinInfo = {};
+    try {
+        const result = await fetch(`${oneDataKey}${req.params.id}`)
+        coinInfo = await result.json();
+        console.log(coinInfo)
+    } catch (error) {
+        console.error(error)
+    }
+    res.header('Access-Control-Allow-Origin', "*")
+    res.json(coinInfo);
 })
 
 app.listen(port, () => {

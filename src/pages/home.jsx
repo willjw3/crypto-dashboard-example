@@ -1,24 +1,26 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { GlobalContext } from '../context/globalState';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import '../App.css';
 
 export default function Home() {
-
+    
+    const context = useContext(GlobalContext);
+    
     const [cryptoData, setCryptoData] = useState([]);
 
     useEffect(() => {
         const getCryptoData = async () => {
-            const result = await fetch('http://localhost:3570');
-            const data = await result.json();
-            setCryptoData(data)
-            
+            context.then(data => {
+                setCryptoData(data)
+            })  
         }
         getCryptoData();
     }, [])
 
-    console.log(cryptoData.length && cryptoData)
+    //console.log(cryptoData.length && cryptoData)
 
     return (
         <Layout>
