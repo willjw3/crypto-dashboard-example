@@ -19,6 +19,14 @@ hr {
   margin: 0 5px;
 }
 
+.link {
+  text-decoration: none;
+  color: #000000;
+}
+.link:hover {
+  opacity: .5;
+}
+
 .coin-row, .header-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

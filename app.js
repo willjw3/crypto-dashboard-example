@@ -55,7 +55,7 @@ app.get('/', async (req, res) => {
 })
 
 app.get('/coindata/:id', async (req, res) => {
-    console.log({params: req.params})
+    //console.log({params: req.params})
     let url = `https://api.coingecko.com/api/v3/coins/${req.params.id}/market_chart?vs_currency=usd&days=7`;
     let coinInfo = {};
     try {

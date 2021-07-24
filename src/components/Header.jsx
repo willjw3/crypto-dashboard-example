@@ -8,7 +8,7 @@ export default function Header() {
         <div className="header">
             <div className="logo-title">
                 <img src={Logo} alt="CoinSpy Logo" width="100px" />
-                <h1>CoinSpy</h1>
+                <Link className="link" to="/"><h1>CoinSpy</h1></Link>
             </div>
             <ul className="header-links">
                 <li>Cryptocurrencies</li>
