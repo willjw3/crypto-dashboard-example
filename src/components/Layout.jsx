@@ -1,9 +1,13 @@
 import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
-export default function Layout() {
+export default function Layout({children}) {
     return (
-        <div>
-            
+        <div className="layout">
+            <Header />
+            <main>{children}</main>
+            <Footer />
         </div>
     )
 }

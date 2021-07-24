@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import '@fontsource/quicksand';
 import '@fontsource/kanit';
 import '@fontsource/play';
+import '@fontsource/black-ops-one';
+import '@fontsource/orbitron';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

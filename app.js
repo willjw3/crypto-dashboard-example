@@ -31,6 +31,7 @@ app.get('/', async (req, res) => {
             const marketCap = capCharacterArray.reverse().join('').slice(0, capCharacterArray.reverse().join('').length - 1);
             console.log({original: coin.current_price, final: currentPrice})
             cryptoData.push({
+                id: coin.id,
                 symbol: coin.symbol,
                 name: coin.name,
                 imageUrl: coin.image,

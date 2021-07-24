@@ -1,5 +1,6 @@
 hr {
   margin: 0;
+  opacity: .3;
 }
 
 .App {
@@ -20,7 +21,10 @@ hr {
 
 .table-main:hover {
   background-color: #F1FAFA;
-  
+}
+.table-main a {
+  text-decoration: none;
+  color: #000000;
 }
 
 .coin-main {

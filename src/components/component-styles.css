@@ -1,0 +1,41 @@
+/*Layout*/
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+/*End Layout*/
+
+
+/*Header*/
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+.logo-title h1 {
+    font-family: Orbitron;
+    font-size: 2vw;
+}
+
+.header-links {
+    list-style: none;
+}
+/*End Header*/
+
+/*Footer*/
+.footer {
+    text-align: center;
+}
+.footer a {
+    text-decoration: none;
+    color: dodgerblue;
+}
+/*End Footer*/
