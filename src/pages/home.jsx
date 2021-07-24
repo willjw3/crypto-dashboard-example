@@ -27,7 +27,7 @@ export default function Home() {
                     <h3 className="header-column-name">Symbol</h3>
                     <h3 className="header-column-name">Price</h3>
                     <h3 className="header-column-name">Market Cap</h3>
-                    <h3 className="header-column-name">% Change 24h</h3>
+                    <h3 className="header-column-name">24h</h3>
                 </div>
                 <hr />
             </section>

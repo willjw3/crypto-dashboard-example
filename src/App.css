@@ -1,3 +1,6 @@
+hr {
+  margin: 0;
+}
 
 .App {
   width: 70%;
@@ -12,11 +15,15 @@
 }
 
 .header-column-name {
-  font-family: Ubuntu;
+  font-family: Kanit;
+}
+
+.table-main:hover {
+  background-color: #F1FAFA;
+  
 }
 
 .coin-main {
-  /* width: 250px; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
