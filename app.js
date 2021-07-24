@@ -56,16 +56,16 @@ app.get('/', async (req, res) => {
 
 app.get('/coindata/:id', async (req, res) => {
     console.log({params: req.params})
+    let url = `https://api.coingecko.com/api/v3/coins/${req.params.id}/market_chart?vs_currency=usd&days=7`;
     let coinInfo = {};
     try {
-        const result = await fetch(`${oneDataKey}${req.params.id}`)
+        const result = await fetch(url)
         coinInfo = await result.json();
-        console.log(coinInfo)
     } catch (error) {
         console.error(error)
     }
     res.header('Access-Control-Allow-Origin', "*")
-    res.json(coinInfo);
+    res.json(coinInfo.prices);
 })
 
 app.listen(port, () => {

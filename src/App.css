@@ -97,4 +97,8 @@ hr {
   border: 1px solid #eff2f5;
   border-radius: 5px;
 }
+
+.chart {
+  width: 70%;
+}
 /*End Coin Page*/

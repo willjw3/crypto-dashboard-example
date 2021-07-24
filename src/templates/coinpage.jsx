@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from '../context/globalState';
 import { useParams } from 'react-router-dom';
 import Layout from '../components/Layout';
+import Chart from '../components/chart';
 import '../App.css';
 
 export default function CoinPage() {
@@ -61,7 +62,10 @@ export default function CoinPage() {
                 </section>
                 <hr />
                 <section className="coinpage-stats-analysis">
-
+                    <div className="chart">
+                        <Chart id={id} />
+                    </div>
+                    
                 </section>
             </div>
         </Layout>
