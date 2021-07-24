@@ -9,6 +9,16 @@ hr {
   font-family: Quicksand;
 }
 
+.centered-heading {
+  text-align: center;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.px5-margin {
+  margin: 0 5px;
+}
+
 .coin-row, .header-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -45,6 +55,7 @@ hr {
 
 .symbol {
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 @keyframes App-logo-spin {
@@ -55,3 +66,35 @@ hr {
     transform: rotate(360deg);
   }
 }
+
+/*Coin Page*/
+.coinpage-ticker {
+  /* display: flex;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+/* .coin-general {
+  width: 50%;
+} */
+
+.coinname {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coin-numbers {
+  margin: auto;
+}
+
+.pill {
+  padding: 5px;
+  background: #eff2f5;
+  border: 1px solid #eff2f5;
+  border-radius: 5px;
+}
+/*End Coin Page*/

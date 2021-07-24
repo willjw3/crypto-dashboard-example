@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import '../App.css';
 
 export default function Home() {
-    
+
     const context = useContext(GlobalContext);
     
     const [cryptoData, setCryptoData] = useState([]);
@@ -18,7 +18,7 @@ export default function Home() {
             })  
         }
         getCryptoData();
-    }, [])
+    }, [context])
 
     //console.log(cryptoData.length && cryptoData)
 
