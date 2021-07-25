@@ -2,7 +2,8 @@ import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from '../context/globalState';
 import { useParams } from 'react-router-dom';
 import Layout from '../components/Layout';
-import Chart from '../components/chart';
+//import Chart from '../components/chart';
+import Chart from '../components/LineChart';
 import '../App.css';
 
 export default function CoinPage() {
@@ -65,7 +66,7 @@ export default function CoinPage() {
                     <div className="chart">
                         <Chart id={id} />
                     </div>
-                    
+                    <div dangerouslySetInnerHTML={{__html: `<iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0" src="https://cryptopanic.com/widgets/news/?bg_color=FFFFFF&amp;font_family=sans&amp;header_bg_color=30343B&amp;header_text_color=FFFFFF&amp;link_color=0091C2&amp;news_feed=recent&amp;text_color=333333&amp;title=Latest%20News" height="350px"></iframe>`}}/>
                 </section>
             </div>
         </Layout>

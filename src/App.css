@@ -106,7 +106,13 @@ hr {
   border-radius: 5px;
 }
 
+.coinpage-stats-analysis {
+  display: flex;
+}
+
 .chart {
   width: 70%;
 }
+
+
 /*End Coin Page*/

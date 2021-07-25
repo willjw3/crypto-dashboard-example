@@ -62,10 +62,12 @@ export default function Chart({id}) {
         scales: {
             yAxes: [
                 {
+                  display: true,
                   ticks: {
                       min: Math.min(...prices) - .02 * Math.min(...prices),
-                      max: Math.max(...prices) + .02 * Math.min(...prices),
-                      maxTicksLimit: 20
+                      max: Math.max(...prices),
+                      autoSkip: true,
+                      maxTicksLimit: 10
                   }  
                 }
             ],
