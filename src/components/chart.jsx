@@ -15,7 +15,7 @@ export default function Chart({id}) {
             const data = await result.json();
             console.log(data);
             for (let price of data) {
-                yLabels.push(price[1]/1000)
+                yLabels.push(price[1])
                 xLabels.push(new Date(price[0]).toLocaleDateString())
             }
             setXvals(xLabels);
@@ -65,7 +65,7 @@ export default function Chart({id}) {
                   ticks: {
                       min: Math.min(...prices) - .02 * Math.min(...prices),
                       max: Math.max(...prices) + .02 * Math.min(...prices),
-                      stepSize: 1
+                      maxTicksLimit: 20
                   }  
                 }
             ],
