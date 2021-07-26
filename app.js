@@ -9,7 +9,7 @@ const port = 3570 || process.env.PORT;
 app.use(express.json());
 
 const allDataKey = process.env.ALL_COINS_DATA_KEY;
-const oneDataKey = process.env.ONE_COIN_DATA_KEY;
+//const oneDataKey = process.env.ONE_COIN_DATA_KEY;
 
 app.get('/', async (req, res) => {
     let cryptoData = [];

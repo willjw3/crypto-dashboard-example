@@ -11,7 +11,7 @@ export default function Header() {
                 <Link className="link" to="/"><h1>CoinSpy</h1></Link>
             </div>
             <ul className="header-links">
-                <li>Cryptocurrencies</li>
+                <li><Link className="link">Cryptocurrencies</Link></li>
             </ul>
         </div>
     )
