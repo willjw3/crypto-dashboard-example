@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fontsource/black-ops-one": "^4.5.0",
     "@fontsource/kanit": "^4.5.0",
     "@fontsource/orbitron": "^4.5.0",
     "@fontsource/quicksand": "^4.5.0",

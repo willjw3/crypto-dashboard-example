@@ -4,6 +4,7 @@ import '@fontsource/quicksand';
 import '@fontsource/kanit';
 import '@fontsource/black-ops-one';
 import '@fontsource/orbitron';
+import '@fontsource/raleway-dots';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

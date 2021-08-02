@@ -9,6 +9,15 @@ hr {
   font-family: Quicksand;
 }
 
+.main-heading {
+  margin-bottom: 0;
+  font-family: Kanit;
+  background-color: steelblue;
+  color: #ffffff;
+  font-weight: 400;
+  padding: 0 20px;
+}
+
 .centered-heading {
   text-align: center;
 }
@@ -33,6 +42,12 @@ hr {
   align-items: center;
 }
 
+.coin-row-mobile, .header-row-mobile {
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
 .table-top {
   position: sticky;
   z-index:100;
@@ -42,6 +57,10 @@ hr {
 
 .header-column-name {
   font-family: Kanit;
+}
+
+.table-main-mobile {
+  display: none;
 }
 
 .table-main:hover {
@@ -79,8 +98,16 @@ hr {
 .coinpage-ticker {
   /* display: flex;
   justify-content: space-between; */
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.coinpage-ticker-mobile {
+  margin-top: 30px;
+  display: none;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -108,11 +135,99 @@ hr {
 
 .coinpage-stats-analysis {
   display: flex;
+  /* justify-content: space-between;
+  align-items: center; */
 }
 
 .chart {
   width: 70%;
 }
 
+.side-display {
+  margin: 30px;
+  width: 30%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+}
+
+.side-display-divider {
+  margin: 20px 0;
+}
+
+.coin-desc-desktop {
+  padding: 20px;
+}
+
+.coin-desc-mobile {
+  display: none;
+  padding: 20px;
+}
+.under-display {
+  display: none;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 1400px) {
+  .App {
+    width: 80%
+  }
+}
+
+@media (max-width: 1000px) {
+  .App {
+    width: 90%;
+  }
+  .table-main {
+    display: none;
+  }
+  .table-main-mobile {
+    display: block;
+  }
+  .coin-row, .header-row {
+    display: none;
+  }
+  .coin-row-mobile, .header-row-mobile {
+    display: grid;
+    justify-items: center;
+  }
+  .chart {
+    width: 100%;
+    margin: auto;
+
+  }
+  .coin-desc-desktop {
+    display: none;
+  }
+  .coin-desc-mobile {
+    display: block;
+  }
+  .side-display {
+    display: none;
+  }
+  .under-display {
+    display: block;
+  }
+}
+
+@media (max-width: 750px) {
+  .coinpage-ticker {
+    display: none;
+  }
+  .coinpage-ticker-mobile {
+    display: flex;
+  }
+  .coinpage-ticker-mobile h2 {
+    font-size: 1.25rem;
+  }
+  .under-display h2 {
+    font-size: 1.15rem;
+  }
+  .under-display h3 {
+    font-size: 1.05rem;
+  }
+}
 
 /*End Coin Page*/

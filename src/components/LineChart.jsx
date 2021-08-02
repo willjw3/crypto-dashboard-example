@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import './chart-styles.css';
 
@@ -17,7 +17,7 @@ export default function LineChart({id}) {
         const getChartData = async () => {
             const totalData = [];
             const prices = [];
-            const result = await fetch(`http://localhost:3570/coindata/${id}`);
+            const result = await fetch(`http://localhost:3570/chartdata/?id=${id}`);
             const data = await result.json();
             for (let price of data) {
                 prices.push(price[1]);

@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { GlobalContext } from '../context/globalState';
 import { useParams } from 'react-router-dom';
 import Layout from '../components/Layout';
-//import Chart from '../components/chart';
 import Chart from '../components/LineChart';
+import NewsStrip from '../components/NewsStrip';
+import Twitter from '../images/twitter.svg'
 import '../App.css';
 
 export default function CoinPage() {
 
-    const context = useContext(GlobalContext);
 
     const { id } = useParams();
     
@@ -17,22 +16,23 @@ export default function CoinPage() {
 
     useEffect(() => {
         const getCoinData = async () => {
-            const allCoins = await context;
-            for (const coin of allCoins) {
-                if (coin.id === id) {
-                    setCoinData(coin)
-                    setPercentageColor(coin.change.toString()[0] === '-' ? '#FF0000' : '#008000')
-                }
-            }
+            let url = `http://localhost:3570/coindata/?id=${id}`;
+            const result = await fetch(url);
+            const data = await result.json();
+            await setPercentageColor(data.change.toString()[0] === '-' ? '#FF0000' : '#008000');
+            await setCoinData(data);
         }
         getCoinData()
-    }, [context, id])
+    }, [])
 
-    console.log(coinData && coinData);
+    console.log(id);
 
     return (
         <Layout>
             <div className="App">
+                <h2 className="main-heading">Crypto News Headlines</h2>
+                <NewsStrip />
+                <h2 className="main-heading">Coin Data & Info</h2>
                 <section className="coinpage-ticker">
                     <div className="coin-general">
                         <div className="coinname">
@@ -51,7 +51,7 @@ export default function CoinPage() {
                     <div className="coin-numbers">
                         <div className="numbers-data">
                             <small>Market Cap</small>
-                            <h2>${coinData.market_cap}</h2>
+                            <h2>${coinData.cap}</h2>
                         </div>  
                     </div>
                     <div className="coin-numbers">
@@ -61,15 +61,69 @@ export default function CoinPage() {
                         </div>  
                     </div>
                 </section>
+                <section className="coinpage-ticker-mobile">
+                    <div className="coin-general">
+                        <div className="coinname">
+                            <img className="px5-margin" src={coinData.imageUrl} width="40px" alt={coinData.name}/>
+                            <h1 className="px5-margin">{coinData.name}</h1>
+                            <button className="pill px5-margin"><span className="symbol">{coinData.symbol}</span></button>
+                        </div>
+                        <h4 className="centered-heading">Market Cap Rank # {coinData.rank}</h4>
+                    </div>
+                    <div className="coin-numbers">
+                        <div className="numbers-data">
+                            <small>{coinData.name} Price (<span className="symbol">{coinData.symbol}</span>)</small>
+                            <h2>${coinData.price}</h2>
+                        </div>  
+                    </div>
+                </section>
                 <hr />
                 <section className="coinpage-stats-analysis">
                     <div className="chart">
                         <Chart id={id} />
+                        <div className="coin-desc-desktop" dangerouslySetInnerHTML={{__html: coinData.desc}} />
+                        <div className="under-display">
+                            <div className="coinname">
+                                <img className="px5-margin" src={coinData.imageUrl} width="40px" alt={coinData.name}/>
+                                <h1 className="px5-margin">{coinData.name}</h1>
+                                <button className="pill px5-margin"><span className="symbol">{coinData.symbol}</span></button>
+                            </div>
+                            <hr className="side-display-divider" />
+                            <h2>Rank: {coinData.rank}</h2>
+                            <h3>Inception: {coinData.inception}</h3>
+                            <h3>Hash: {coinData.hash}</h3>
+                            <h3>Currency: USD</h3>
+                            <h3>{coinData.name} Price: ${coinData.price}</h3>
+                            <h3>Price Change <button className="pill px5-margin" style={{backgroundColor: "lightsteelblue"}}><span className="symbol">24h</span></button> <span style={{color: percentageColor}}>{coinData.change}%</span></h3>
+                            <h3>Low <button className="pill px5-margin" style={{backgroundColor: "lightsteelblue"}}><span className="symbol">24h</span></button> ${coinData.low}</h3>
+                            <h3>High <button className="pill px5-margin" style={{backgroundColor: "lightsteelblue"}}><span className="symbol">24h</span></button> ${coinData.high}</h3>
+                            <h3>Market Cap: ${coinData.cap}</h3>
+                            <h3>Volume: ${coinData.volume}</h3>
+                            <a href={coinData.homepage} target="_blank" rel="noreferrer noopener">{coinData.homepage}</a>
+                        </div>
                     </div>
-                    <div dangerouslySetInnerHTML={{__html: `<iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0" src="https://cryptopanic.com/widgets/news/?bg_color=FFFFFF&amp;font_family=sans&amp;header_bg_color=30343B&amp;header_text_color=FFFFFF&amp;link_color=0091C2&amp;news_feed=recent&amp;text_color=333333&amp;title=Latest%20News" height="350px"></iframe>`}}/>
+                    <div className="side-display">
+                        <div className="coinname">
+                            <img className="px5-margin" src={coinData.imageUrl} width="40px" alt={coinData.name}/>
+                            <h1 className="px5-margin">{coinData.name}</h1>
+                            <button className="pill px5-margin"><span className="symbol">{coinData.symbol}</span></button>
+                        </div>
+                        <hr className="side-display-divider" />
+                        <h2>Rank: {coinData.rank}</h2>
+                        <h3>Inception: {coinData.inception}</h3>
+                        <h3>Hash: {coinData.hash}</h3>
+                        <h3>Currency: USD</h3>
+                        <h3>{coinData.name} Price: ${coinData.price}</h3>
+                        <h3>Price Change <button className="pill px5-margin" style={{backgroundColor: "lightsteelblue"}}><span className="symbol">24h</span></button> <span style={{color: percentageColor}}>{coinData.change}%</span></h3>
+                        <h3>Low <button className="pill px5-margin" style={{backgroundColor: "lightsteelblue"}}><span className="symbol">24h</span></button> ${coinData.low}</h3>
+                        <h3>High <button className="pill px5-margin" style={{backgroundColor: "lightsteelblue"}}><span className="symbol">24h</span></button> ${coinData.high}</h3>
+                        <h3>Market Cap: ${coinData.cap}</h3>
+                        <h3>Volume: ${coinData.volume}</h3>
+                        <a href={coinData.homepage} target="_blank" rel="noreferrer noopener">{coinData.homepage}</a>
+                    </div>
                 </section>
+                <div className="coin-desc-mobile" dangerouslySetInnerHTML={{__html: coinData.desc}} />
             </div>
-        </Layout>
-        
+        </Layout>  
     )
 }
