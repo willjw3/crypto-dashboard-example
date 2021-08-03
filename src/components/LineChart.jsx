@@ -17,7 +17,7 @@ export default function LineChart({id}) {
         const getChartData = async () => {
             const totalData = [];
             const prices = [];
-            const result = await fetch(`http://localhost:3570/chartdata/?id=${id}`);
+            const result = await fetch(`http://localhost:60398/getchartdata/?id=${id}`);
             const data = await result.json();
             for (let price of data) {
                 prices.push(price[1]);

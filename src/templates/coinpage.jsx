@@ -12,10 +12,11 @@ export default function CoinPage() {
     
     const [coinData, setCoinData] = useState({});
     const [percentageColor, setPercentageColor] = useState('');
-
+    console.log(id)
     useEffect(() => {
         const getCoinData = async () => {
-            let url = `http://localhost:3570/coindata/?id=${id}`;
+            
+            let url = `http://localhost:60398/getcoindata/?id=${id}`;
             const result = await fetch(url);
             const data = await result.json();
             await setPercentageColor(data.change.toString()[0] === '-' ? '#FF0000' : '#008000');
