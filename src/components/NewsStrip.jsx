@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from '../context/globalState';
-import { Link } from 'react-router-dom';
 import HeadlineBlock from './HeadlineBlock';
 import './component-styles.css';
 
@@ -21,10 +20,7 @@ export default function NewsStrip() {
             })  
         }
         getNewsData();
-    }, [])
-
-    console.log(newsData.length && newsData)
-
+    }, [context])
 
     return (
         <div className="news-strip">
@@ -46,7 +42,7 @@ export default function NewsStrip() {
                     })
                 }
             </section>
-            <a href="#" className="all-headlines-link"><small>More Headlines...</small></a>
+            <a href="/news" className="all-headlines-link"><small>More Headlines...</small></a>
         </div>
     )
 }

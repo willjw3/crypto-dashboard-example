@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Chart from '../components/LineChart';
 import NewsStrip from '../components/NewsStrip';
-import Twitter from '../images/twitter.svg'
 import '../App.css';
 
 export default function CoinPage() {
@@ -23,9 +22,7 @@ export default function CoinPage() {
             await setCoinData(data);
         }
         getCoinData()
-    }, [])
-
-    console.log(id);
+    }, [id])
 
     return (
         <Layout>

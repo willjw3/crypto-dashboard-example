@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './pages/home';
 import CoinPage from './templates/coinpage';
+import News from './pages/news';
 
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
       </Route>
       <Route path="/coin/:id">
         <CoinPage />
+      </Route>
+      <Route path="/news">
+        <News />
       </Route>
     </Router>
   );

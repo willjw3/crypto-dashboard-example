@@ -18,24 +18,18 @@ export default function Ticker() {
         getCryptoData();
     }, [context]);
 
-    console.log(cryptoData.length && cryptoData)
-
     return (
         <div className="ticker-wrap">
             <div className="ticker">
                 {
                     cryptoData.length && cryptoData.map((coinData, i) => {
                         return (
-                            <div className="ticker__item">
-                                {coinData.name} ({coinData.symbol.toUpperCase()}) ${coinData.price}
+                            <div key={i} className="ticker__item">
+                                {coinData.name} <small style={{fontSize: ".75rem"}}> ({coinData.symbol.toUpperCase()})</small> ${coinData.price}
                             </div>
                         )
                     })
                 }
-            {/* <div className="ticker__item">Letterpress chambray brunch.</div>
-            <div className="ticker__item">Vice mlkshk crucifix beard chillwave meditation hoodie asymmetrical Helvetica.</div>
-            <div className="ticker__item">Ugh PBR&B kale chips Echo Park.</div>
-            <div className="ticker__item">Gluten-free mumblecore chambray mixtape food truck. </div> */}
             </div>
         </div>
     )

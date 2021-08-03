@@ -1,6 +1,6 @@
 body {
     width: 100%;
-    overflow-x: hidden;
+    
 }
 
 /*Layout*/
@@ -75,7 +75,7 @@ body {
     display: inline-block;
     padding: 0 2rem;
     font-size: 1rem;
-    color: lightblue; 
+    color: #39ff14 ; 
     font-family: Orbitron;  
 
   }
@@ -83,15 +83,10 @@ body {
 
 /*Header*/
 .header {
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     margin-bottom: 20px;
+    overflow-x: hidden;
 }
 
-.main-logo {
-    /* margin: 0 10px; */
-}
 
 .logo-title {
     width: 20%;

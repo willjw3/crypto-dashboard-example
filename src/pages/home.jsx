@@ -22,7 +22,6 @@ export default function Home() {
         getCryptoData();
     }, [context])
 
-    //console.log(cryptoData.length && cryptoData)
 
     return (
         <Layout>
