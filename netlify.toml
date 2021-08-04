@@ -1,3 +1,9 @@
-
+[build] 
+  publish = "build"
 [functions] 
-  directory = "functions"
+  directory = "functions" 
+[[redirects]] 
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
