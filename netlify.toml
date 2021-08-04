@@ -1,2 +1,3 @@
-[functions]
-  directory = "functions"
+[build]
+  command = "yarn build"
+  functions = "functions"
