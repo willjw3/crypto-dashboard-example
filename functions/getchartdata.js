@@ -17,7 +17,8 @@ exports.handler = async function(event, context) {
     return {
         statusCode: 200,
         headers: {
-            'Access-Control-Allow-Origin': "*"
+            "Content-Type": "application/json; charset=UTF-8",
+            "Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify(chartData.prices)
     }
