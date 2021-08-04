@@ -77,12 +77,12 @@ export default function Home() {
                                     <Link className="link" to={`/coin/${coin.id}`}>
                                         <div className="coin-row-mobile">
                                             <div className="coin-main">
-                                                <img className="coin-main-elements" src={coin.imageUrl} alt={coin.name} width="24"/>
-                                                <h4 className="coin-main-elements">{coin.name}</h4>
-                                                <small className="symbol">({coin.symbol})</small>
+                                                <img className="coin-main-elements" src={coin.imageUrl} alt={coin.name} width="18"/>
+                                                <h5 className="coin-main-elements">{coin.name}</h5>
+                                                
                                             </div>
-                                            <p>${coin.price}</p>
-                                            <p> <span style={{color: changePercentageColor}}>{coin.change}%</span></p>
+                                            <small>${coin.price}</small>
+                                            <small> <span style={{color: changePercentageColor}}>{coin.change}%</span></small>
                                         </div>
                                     </Link>
                                     <hr />  

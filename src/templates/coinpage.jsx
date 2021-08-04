@@ -69,15 +69,14 @@ export default function CoinPage() {
                             <div className="coin-general">
                                 <div className="coinname">
                                     <img className="px5-margin" src={coinData.imageUrl} width="40px" alt={coinData.name}/>
-                                    <h1 className="px5-margin">{coinData.name}</h1>
-                                    <button className="pill px5-margin"><span className="symbol">{coinData.symbol}</span></button>
+                                    <h3 className="px5-margin">{coinData.name}</h3>
                                 </div>
-                                <h4 className="centered-heading">Market Cap Rank # {coinData.rank}</h4>
+                                <h5 className="centered-heading">Market Cap Rank # {coinData.rank}</h5>
                             </div>
                             <div className="coin-numbers">
                                 <div className="numbers-data">
                                     <small>{coinData.name} Price (<span className="symbol">{coinData.symbol}</span>)</small>
-                                    <h2>${coinData.price}</h2>
+                                    <h4>${coinData.price}</h4>
                                 </div>  
                             </div>
                         </section>
