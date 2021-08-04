@@ -26,17 +26,25 @@ export default function News() {
     return (
         <Layout>
             <div className="App">
-                <h2 className="main-heading">Crypto News Headlines</h2>
                 {
-                    newsData.length && newsData.map((headline, i) => {
-                        return (
-                            <div key={i} className="headline">
-                                <HeadlineBlock title={headline.title} author={headline.author} date={headline.date} url={headline.url} />
-                                <hr />
-                            </div>
-                            
-                        )
-                    })
+                    !newsData.length && <><div className="loader"></div><p style={{textAlign: "center"}}>Loading...</p></>
+                }
+                {
+                    newsData.length &&
+                    <>
+                        <h2 className="main-heading">Crypto News Headlines</h2>
+                            {
+                                newsData.map((headline, i) => {
+                                    return (
+                                        <div key={i} className="headline">
+                                            <HeadlineBlock title={headline.title} author={headline.author} date={headline.date} url={headline.url} />
+                                            <hr />
+                                        </div>
+                                        
+                                    )
+                                })
+                            }
+                    </>
                 }
             </div>
         </Layout>

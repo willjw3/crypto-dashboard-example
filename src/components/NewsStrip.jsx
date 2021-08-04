@@ -24,25 +24,33 @@ export default function NewsStrip() {
 
     return (
         <div className="news-strip">
-            <section className="headlines desktop">
-                {
-                    newsData.length && newsData.map((headline, i) => {
-                        return (
-                            <HeadlineBlock key={i} title={headline.title} author={headline.author} date={headline.date} url={headline.url} />
-                        )
-                    })
-                }
-            </section>
-            <section className="headlines mobile">
-                {
-                    newsData.length && newsData.map((headline, i) => {
-                        return (
-                            <HeadlineBlock key={i} title={headline.title} author={headline.author} date={headline.date} url={headline.url} />
-                        )
-                    })
-                }
-            </section>
-            <a href="/news" className="all-headlines-link"><small>More Headlines...</small></a>
+            {
+                !newsData.length && <><div className="loader"></div><p style={{textAlign: "center"}}>Loading...</p></>
+            }
+            {
+                newsData.length &&
+                <>
+                    <section className="headlines desktop">
+                    {
+                        newsData.length && newsData.map((headline, i) => {
+                            return (
+                                <HeadlineBlock key={i} title={headline.title} author={headline.author} date={headline.date} url={headline.url} />
+                            )
+                        })
+                    }
+                    </section>
+                    <section className="headlines mobile">
+                        {
+                            newsData.length && newsData.map((headline, i) => {
+                                return (
+                                    <HeadlineBlock key={i} title={headline.title} author={headline.author} date={headline.date} url={headline.url} />
+                                )
+                            })
+                        }
+                    </section>
+                    <a href="/news" className="all-headlines-link"><small>More Headlines...</small></a>
+                </>
+            }
         </div>
     )
 }
