@@ -16,7 +16,7 @@ export default function CoinPage() {
     useEffect(() => {
         const getCoinData = async () => {
             
-            let url = `http://localhost:60398/getcoindata/?id=${id}`;
+            let url = `/.netlify/functions/getcoindata/?id=${id}`;
             const result = await fetch(url);
             const data = await result.json();
             await setPercentageColor(data.change.toString()[0] === '-' ? '#FF0000' : '#008000');

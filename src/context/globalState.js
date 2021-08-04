@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 const allCoinDataBasic = async () => {
-    const result = await fetch('http://localhost:60398/getallcoins');
+    const result = await fetch('/.netlify/functions/getallcoins');
     const data = await result.json();
     return data;
 } 
