@@ -30,7 +30,7 @@ export default function News() {
                     !newsData.length && <><div className="loader"></div><p style={{textAlign: "center"}}>Loading...</p></>
                 }
                 {
-                    newsData.length &&
+                    !!newsData.length &&
                     <>
                         <h2 className="main-heading">Crypto News Headlines</h2>
                             {

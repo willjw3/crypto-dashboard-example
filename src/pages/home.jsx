@@ -29,7 +29,7 @@ export default function Home() {
                 {
                     !cryptoData.length && <><div className="loader"></div><p style={{textAlign: "center"}}>Loading...</p></>
                 }
-                {   cryptoData.length &&
+                {   !!cryptoData.length &&
                     <>
                     <h2 className="main-heading">Crypto News Headlines</h2>
                         <NewsStrip />
